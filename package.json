@@ -2,28 +2,42 @@
   "name": "pwd-check",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/main.js",
+  "main": "dist/pwd-check.js",
   "bin": {
-    "pwd-check": "dist/main.js"
+    "pwd-check": "dist/cli.js"
   },
   "scripts": {
-    "start:dev": "npm -s run build && node dist/main.js",
-    "build": "parcel build --target node src/main.ts",
+    "test": "jest --collect-coverage",
+    "start:dev": "npm -s run build && node dist/cli.js",
+    "build": "parcel build --target node src/cli.ts",
     "build:dist": "npm -s run build -- --no-source-maps --bundle-node-modules",
     "prepack": "npm -s run build:dist"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "password",
+    "pwned",
+    "cli"
+  ],
+  "author": {
+    "name": "Claudio Corridore",
+    "email": "info@claudio.page",
+    "url": "https://claudio.page"
+  },
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "@types/nock": "^10.0.2",
     "@types/node": "^12.0.0",
     "@types/node-fetch": "^2.3.3",
     "@types/prompts": "^2.4.0",
+    "jest": "^24.8.0",
     "kleur": "^3.0.3",
+    "nock": "^10.0.6",
     "node-fetch": "^2.5.0",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-shebang": "^1.2.5",
     "prompts": "^2.0.4",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.4.5"
   },
   "shebang": [
