@@ -1,35 +1,56 @@
 import { createHash } from "crypto";
+import prompts from "prompts";
 import fetch from "node-fetch";
+import { green, red, underline, bold } from "kleur";
 
-const [,, password] = process.argv;
+function encryptPwd(pwd: string): string[] {
+  const epwd = createHash("sha1")
+    .update(pwd)
+    .digest("hex");
 
-function encryptPwd(pwd: string): string {
-  return createHash("sha1").update(pwd).digest("hex");
+  return [epwd.substring(0, 5), epwd.substring(5)];
 }
 
-
 async function main() {
-  const pwd = encryptPwd(password);
+  const {
+    pwd: [head, tail]
+  } = await prompts(
+    {
+      type: "password",
+      name: "pwd",
+      message: "Which password do you want to check?",
+      format: val => encryptPwd(val)
+    },
+    {
+      onCancel: () => {
+        console.log("Bye!");
+        process.exit();
+      }
+    }
+  );
 
-  const matches = await fetch(`https://api.pwnedpasswords.com/range/${pwd.substring(0, 5)}`).then(res => res.text());
+  const range = await fetch(
+    `https://api.pwnedpasswords.com/range/${head}`
+  ).then(res => res.text());
 
   let times = 0;
 
-  matches.split("\n").some(match => {
-    const [p, n] = match.split(":");
+  range.split("\n").some(line => {
+    const [pwd, num] = line.split(":");
 
-    if (p.toUpperCase() === pwd.substring(5).toUpperCase()) {
-      times = parseInt(n, 10);
-      return true;
+    if (pwd.toUpperCase() === tail.toUpperCase()) {
+      times = parseInt(num, 10);
     }
 
-    return false;
+    return times > 0;
   });
 
   if (times > 0) {
-    console.log(`"${password}" has been found ${times} times, bad!`);
+    console.log(
+      red(`The password has been found ${bold(times)} times, change it!`)
+    );
   } else {
-    console.log("Password not found, cool!");
+    console.log(green().underline("Password not found, cool!"));
   }
 }
 
