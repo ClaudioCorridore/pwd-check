@@ -13,7 +13,7 @@ jobs:
     - stage: test
       script:
         - npm run lint
-        - npm test
+        - npm run test:coverage
     - stage: npm release
       if: tag IS present
       node_js: "12"

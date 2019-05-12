@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint src/**/* specs/**/*",
     "test": "jest",
-    "test:coverage": "npm -s run test -- --collect-coverage",
+    "test:coverage": "npm -s run test -- --coverage --coverageDirectory ./tmp && cat ./lcov.info | coveralls",
     "start:dev": "npm -s run build && node dist/cli.js",
     "build": "parcel build --target node src/cli.ts",
     "build:dist": "npm -s run build -- --no-source-maps --bundle-node-modules",
@@ -36,6 +36,7 @@
     "@types/prompts": "^2.4.0",
     "@typescript-eslint/eslint-plugin": "^1.8.0",
     "@typescript-eslint/parser": "^1.8.0",
+    "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.2.0",
     "eslint-plugin-prettier": "^3.1.0",
