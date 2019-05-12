@@ -1,7 +1,7 @@
 {
   "name": "pwd-check",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple CLI tool to check if a password has been pwned using https://haveibeenpwned.com API.",
   "main": "dist/pwd-check.js",
   "bin": {
     "pwd-check": "dist/cli.js"
@@ -13,10 +13,12 @@
     "build:dist": "npm -s run build -- --no-source-maps --bundle-node-modules",
     "prepack": "npm -s run build:dist"
   },
+  "repository": "github:ClaudioCorridore/pwd-check",
   "keywords": [
     "password",
     "pwned",
-    "cli"
+    "cli",
+    "haveibeenpwned"
   ],
   "author": {
     "name": "Claudio Corridore",
@@ -44,7 +46,7 @@
     {
       "interpreter": "node",
       "files": [
-        "./src/main.ts"
+        "./src/cli.ts"
       ]
     }
   ]
