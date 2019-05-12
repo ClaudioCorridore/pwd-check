@@ -2,18 +2,23 @@ language: node_js
 node_js:
   - "12"
 
-cache: npm
-
-install: npm install
-script:
-  - npm test
+stages:
+  - build
+  - test
+  - deploy
 
 jobs:
   include:
+    - stage: build
+      script: npm install
+      cache: npm
+    - stage: test
+      script:
+        - npm run lint
+        - npm test
     - stage: npm release
       if: tag IS present
       node_js: "12"
-      script: npm pack
       deploy:
         provider: npm
         email: "$NPM_EMAIL"

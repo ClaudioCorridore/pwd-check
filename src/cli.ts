@@ -2,7 +2,7 @@ import prompts from "prompts";
 import { green, red, bold } from "kleur";
 import { pwdCheck } from "./pwd-check";
 
-async function main() {
+async function main(): Promise<void> {
   const { pwd } = await prompts(
     {
       type: "password",
@@ -10,7 +10,7 @@ async function main() {
       message: "Which password do you want to check?"
     },
     {
-      onCancel: () => {
+      onCancel: (): void => {
         console.log("Bye!");
         process.exit();
       }
