@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint src/**/* specs/**/*",
     "test": "jest",
-    "test:coverage": "npm -s run test -- --coverage --coverageDirectory ./tmp && cat ./lcov.info | coveralls",
+    "test:coverage": "npm -s run test -- --coverage --coverageDirectory ./tmp && cat ./tmp/lcov.info | coveralls",
     "start:dev": "npm -s run build && node dist/cli.js",
     "build": "parcel build --target node src/cli.ts",
     "build:dist": "npm -s run build -- --no-source-maps --bundle-node-modules",
