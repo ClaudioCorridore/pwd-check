@@ -2,9 +2,14 @@
 
 [![Build Status](https://travis-ci.com/ClaudioCorridore/pwd-check.svg?branch=master)](https://travis-ci.com/ClaudioCorridore/pwd-check)
 [![Coverage Status](https://coveralls.io/repos/github/ClaudioCorridore/pwd-check/badge.svg?branch=master)](https://coveralls.io/github/ClaudioCorridore/pwd-check?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/npm/pwd-check/badge.svg)](https://snyk.io/test/npm/pwd-check)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+[![NPM](https://nodei.co/npm/pwd-check.png)](https://www.npmjs.com/package/pwd-check)
+
 A simple CLI tool to check if a password has been pwned using https://haveibeenpwned.com API.
+
+---
 
 ## Getting Started
 
