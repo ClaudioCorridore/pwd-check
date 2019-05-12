@@ -2,16 +2,14 @@ language: node_js
 node_js:
   - "12"
 
+cache: npm
+
 stages:
-  - build
   - test
   - deploy
 
 jobs:
   include:
-    - stage: build
-      script: npm install
-      cache: npm
     - stage: test
       script:
         - npm run lint
