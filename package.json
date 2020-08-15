@@ -41,13 +41,11 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.4.0",
-    "kleur": "^4.1.0",
     "nock": "^13.0.4",
     "node-fetch": "^2.6.0",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-shebang": "^1.2.9",
     "prettier": "^2.0.5",
-    "prompts": "^2.3.2",
     "ts-jest": "^26.2.0",
     "typescript": "^3.9.7"
   },
@@ -58,5 +56,9 @@
         "./src/cli.ts"
       ]
     }
-  ]
+  ],
+  "dependencies": {
+    "kleur": "^3.0.3",
+    "prompts": "^2.3.2"
+  }
 }

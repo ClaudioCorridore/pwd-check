@@ -7,13 +7,13 @@ async function main(): Promise<void> {
     {
       type: "password",
       name: "pwd",
-      message: "Which password do you want to check?"
+      message: "Which password do you want to check?",
     },
     {
       onCancel: (): void => {
         console.log("Bye!");
         process.exit();
-      }
+      },
     }
   );
 
