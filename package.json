@@ -7,7 +7,7 @@
     "pwd-check": "dist/cli.js"
   },
   "scripts": {
-    "lint": "eslint src/**/* specs/**/*",
+    "lint": "eslint src/**/* specs/**/* *.js .*.js",
     "test": "jest",
     "test:coverage": "npm -s run test -- --coverage --coverageDirectory ./tmp && cat ./tmp/lcov.info | coveralls",
     "start:dev": "npm -s run build && node dist/cli.js",
