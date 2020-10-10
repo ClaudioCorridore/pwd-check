@@ -1,6 +1,6 @@
 {
   "name": "pwd-check",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A simple CLI tool to check if a password has been pwned using https://haveibeenpwned.com API.",
   "main": "dist/pwd-check.js",
   "bin": {
