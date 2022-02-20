@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "12"
+  - "14"
 
 cache: npm
 
@@ -16,7 +16,7 @@ jobs:
         - npm run test:coverage
     - stage: npm release
       if: tag IS present
-      node_js: "12"
+      node_js: "14"
       deploy:
         provider: npm
         email: "$NPM_EMAIL"
