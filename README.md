@@ -27,7 +27,7 @@ pwd-check
 
 ### Prerequisites
 
-It's recommended to use Node.js version >= 10.0.0 to run this package.
+It's recommended to use Node.js version >= 14.0.0 to run this package.
 
 ### Installing
 
